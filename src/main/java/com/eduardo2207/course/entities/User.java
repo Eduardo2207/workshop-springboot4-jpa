@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,10 +28,11 @@ private static final long serialVersionUID = 1L;
 	private String password;
 	
 	@OneToMany(mappedBy = "client")
-	private List<Order> ordes = new ArrayList<>();
+	private List<Order> orders = new ArrayList<>();
 	
 	public User(){	
 	}
+	
 
 	public User(Long id, String name, String email, String phone, String password) {
 		super();
@@ -79,8 +82,9 @@ private static final long serialVersionUID = 1L;
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	@JsonIgnore
 	public List<Order> getOrdes() {
-		return ordes;
+		return orders;
 	}
 
 	@Override

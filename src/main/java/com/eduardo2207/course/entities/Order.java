@@ -23,13 +23,14 @@ public class Order implements Serializable{
 	private Long id;
 	private Instant moment;
 	
+	
 	@ManyToOne
 	@JoinColumn(name = "client_id")
 	private User client;
 	
 	public Order() {
 	}
-
+	
 	public Order(Long id, Instant moment, User client) {
 		super();
 		this.id = id;
