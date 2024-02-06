@@ -1,20 +1,17 @@
 package com.eduardo2207.course.entities;
 
 import java.io.Serializable;
-<<<<<<< HEAD
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-import org.springframework.data.annotation.Transient;
-=======
-import java.util.Objects;
->>>>>>> 35b5e1a1d4fa85125948e83eea966206dad9095f
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -28,13 +25,11 @@ public class Category implements Serializable{
 	private Long id;
 	private String name;
 	
-<<<<<<< HEAD
-	@jakarta.persistence.Transient
+	@JsonIgnore
+	@ManyToMany(mappedBy = "categories")
 	private Set<Product> products = new HashSet<>();
 	
-=======
->>>>>>> 35b5e1a1d4fa85125948e83eea966206dad9095f
-	public Category() {
+		public Category() {
 	}
 
 	public Category(Long id, String name) {
@@ -59,13 +54,11 @@ public class Category implements Serializable{
 		this.name = name;
 	}
 
-<<<<<<< HEAD
+
 	public Set<Product> getProducts() {
 		return products;
 	}
 
-=======
->>>>>>> 35b5e1a1d4fa85125948e83eea966206dad9095f
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -82,9 +75,5 @@ public class Category implements Serializable{
 		Category other = (Category) obj;
 		return Objects.equals(id, other.id);
 	}
-<<<<<<< HEAD
-
-=======
->>>>>>> 35b5e1a1d4fa85125948e83eea966206dad9095f
 	
 }

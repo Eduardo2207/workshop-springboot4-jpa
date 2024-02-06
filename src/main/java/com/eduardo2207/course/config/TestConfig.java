@@ -12,10 +12,7 @@ import com.eduardo2207.course.entities.Category;
 import com.eduardo2207.course.entities.Order;
 import com.eduardo2207.course.entities.Product;
 import com.eduardo2207.course.entities.User;
-<<<<<<< HEAD
-=======
 import com.eduardo2207.course.entities.enums.OrderStatus;
->>>>>>> 35b5e1a1d4fa85125948e83eea966206dad9095f
 import com.eduardo2207.course.repository.CategoryRepository;
 import com.eduardo2207.course.repository.OrderRepository;
 import com.eduardo2207.course.repository.ProductRepository;
@@ -33,24 +30,17 @@ public class TestConfig implements CommandLineRunner{
 	
 	@Autowired
 	private CategoryRepository categoryRepository;
-<<<<<<< HEAD
+
 	@Autowired
 	private ProductRepository productRepository;
-=======
->>>>>>> 35b5e1a1d4fa85125948e83eea966206dad9095f
 
 	@Override
 	public void run(String... args) throws Exception {
 		
-<<<<<<< HEAD
-		
-=======
->>>>>>> 35b5e1a1d4fa85125948e83eea966206dad9095f
 		Category cat1 = new Category(null, "Electronics");
 		Category cat2 = new Category(null, "Books");
 		Category cat3 = new Category(null, "Computers");
 		
-<<<<<<< HEAD
 		Product p1 = new Product(null, "The Lord of the Rings", "Lorem ipsum dolor sit amet, consectetur.", 90.5, "");
 		Product p2 = new Product(null, "Smart TV", "Nulla eu imperdiet purus. Maecenas ante.", 2190.0, "");
 		Product p3 = new Product(null, "Macbook Pro", "Nam eleifend maximus tortor, at mollis.", 1250.0, "");
@@ -59,9 +49,16 @@ public class TestConfig implements CommandLineRunner{
 		
 		categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
 		productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
-=======
 		categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
->>>>>>> 35b5e1a1d4fa85125948e83eea966206dad9095f
+		
+		p1.getCategories().add(cat2);		
+		p2.getCategories().add(cat1);		
+		p2.getCategories().add(cat3);		
+		p3.getCategories().add(cat3);		
+		p4.getCategories().add(cat3);		
+		p5.getCategories().add(cat2);
+		
+		productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
 		
 		User u1 = new User(null, "Maria Brown", "maria@gmail.com", "988888888", "123456");
 		User u2 = new User(null, "Alex Green", "alex@gmail.com", "977777777", "123456");
