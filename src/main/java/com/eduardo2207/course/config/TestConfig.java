@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Profile;
 import com.eduardo2207.course.entities.Category;
 import com.eduardo2207.course.entities.Order;
 import com.eduardo2207.course.entities.OrderItem;
+import com.eduardo2207.course.entities.Payment;
 import com.eduardo2207.course.entities.Product;
 import com.eduardo2207.course.entities.User;
 import com.eduardo2207.course.entities.enums.OrderStatus;
@@ -81,6 +82,13 @@ public class TestConfig implements CommandLineRunner{
 		OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice());
 		
 		orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
+		
+		
+		Payment pay1 = new Payment(0, Instant.parse("2019-06-20T19:53:07Z"), o1);
+		Payment pay2 = new Payment(0, Instant.parse("2019-06-20T19:53:07Z"), o2);
+		o1.setPayment(pay1);
+		o2.setPayment(pay2);
+		orderRepository.saveAll(Arrays.asList(o1,o2));
 	}
 	
 }
