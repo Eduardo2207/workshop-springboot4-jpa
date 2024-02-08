@@ -1,4 +1,4 @@
-package com.eduardo2207.course.Resources;
+package com.eduardo2207.course.resources;
 
 import java.net.URI;
 import java.util.List;
